@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Auteur: Jean-Philippe Fleury <contact@jpfleury.net>
+Copyright © Jean-Philippe Fleury, 2009.
+
+Ce programme est un logiciel libre; vous pouvez le redistribuer ou le
+modifier suivant les termes de la GNU General Public License telle que
+publiée par la Free Software Foundation: soit la version 3 de cette
+licence, soit (à votre gré) toute version ultérieure.
+
+Ce programme est distribué dans l'espoir qu'il vous sera utile, mais SANS
+AUCUNE GARANTIE: sans même la garantie implicite de COMMERCIALISABILITÉ
+ni d'ADÉQUATION À UN OBJECTIF PARTICULIER. Consultez la Licence publique
+générale GNU pour plus de détails.
+
+Vous devriez avoir reçu une copie de la Licence publique générale GNU avec
+ce programme; si ce n'est pas le cas, consultez
+<http://www.gnu.org/licenses/>.
+-->
+<language id="mediawiki" _name="MediaWiki" version="2.0" _section="Others">
+	<metadata>
+		<property name="block-comment-start">&lt;!--</property>
+		<property name="block-comment-end">--&gt;</property>
+	</metadata>
+	
+	<styles>
+		<style id="emphase" _name="Emphase" map-to="def:statement"/>
+		<style id="identification" _name="Identification" map-to="def:statement"/>
+		<style id="lien" _name="Lien" map-to="def:underlined"/>
+		<style id="ligne" _name="Ligne" map-to="def:type"/>
+		<style id="liste-et-indentation" _name="Liste et indentation" map-to="def:statement"/>
+		<style id="mots-cles" _name="Mots-clés" map-to="def:statement"/>
+		<style id="preformate" _name="Texte préformaté" map-to="def:comment"/>
+		<style id="symbole" _name="Symbole" map-to="def:statement"/>
+		<style id="titre" _name="Titre" map-to="def:type"/>
+	</styles>
+	
+	<definitions>
+		<define-regex id="adresse">[a-z]+://[^ ]+</define-regex>
+		
+		<context id="emphase" style-ref="emphase">
+			<match>'{2,3}</match>
+		</context>
+		
+		<context id="identification" style-ref="identification">
+			<match>~{3,5}</match>
+		</context>
+		
+		<context id="lien-adresse" style-ref="lien">
+			<match>\%{adresse}</match>
+		</context>
+		
+		<context id="lien-crochet-double">
+			<match>(\[\[:?)[^:\|\]]*(:|\|)?[^:\|\]]*(:|\|)?[^:\|\]]*(:|\|)?[^:\|\]]*(:|\|)?[^:\|\]]*(:|\|)?[^:\|\]]*(:|\|)?[^:\|\]]*(:|\|)?[^\]]*(\]\])</match>
+			<include>
+				<context sub-pattern="1" style-ref="symbole"/>
+				<context sub-pattern="2" style-ref="symbole"/>
+				<context sub-pattern="3" style-ref="symbole"/>
+				<context sub-pattern="4" style-ref="symbole"/>
+				<context sub-pattern="5" style-ref="symbole"/>
+				<context sub-pattern="6" style-ref="symbole"/>
+				<context sub-pattern="7" style-ref="symbole"/>
+				<context sub-pattern="8" style-ref="symbole"/>
+				<context sub-pattern="9" style-ref="symbole"/>
+			</include>
+		</context>
+		
+		<context id="lien-crochet-simple">
+			<match>(?&lt;!\[)(\[)(\%{adresse})?.*(\])(?!\])</match>
+			<include>
+				<context sub-pattern="1" style-ref="symbole"/>
+				<context sub-pattern="2" style-ref="lien"/>
+				<context sub-pattern="3" style-ref="symbole"/>
+			</include>
+		</context>
+		
+		<context id="ligne" style-ref="ligne">
+			<match>^-{4,}</match>
+		</context>
+		
+		<context id="liste-definition" style-ref="liste-et-indentation">
+			<match>^;\s*[^\s][^:]*:?</match>
+		</context>
+		
+		<context id="liste-et-indentation" style-ref="liste-et-indentation">
+			<match>^:*(\*|#)*</match>
+		</context>
+		
+		<context id="mots-cles" style-ref="mots-cles">
+			<keyword>__NOTOC__</keyword>
+			<keyword>__TOC__</keyword>
+			<keyword>REDIRECT</keyword>
+		</context>
+		
+		<context id="preformate" style-ref="preformate">
+			<match>^ +[^ ]+.*$</match>
+		</context>
+		
+		<context id="symbole" style-ref="symbole">
+			<match>(\{|\}|\|\+|\|-*)</match>
+		</context>
+		
+		<context id="titre" style-ref="titre">
+			<match>^=.+=\s*$</match>
+		</context>
+		
+		<context id="syntaxe-mediawiki">
+			<include>
+				<context ref="emphase"/>
+				<context ref="identification"/>
+				<context ref="lien-adresse"/>
+				<context ref="lien-crochet-double"/>
+				<context ref="lien-crochet-simple"/>
+				<context ref="ligne"/>
+				<context ref="liste-definition"/>
+				<context ref="liste-et-indentation"/>
+				<context ref="mots-cles"/>
+				<context ref="preformate"/>
+				<context ref="symbole"/>
+				<context ref="titre"/>
+			</include>
+		</context>
+		
+		<replace id="html:embedded-lang-hook" ref="syntaxe-mediawiki"/>
+		
+		<context id="mediawiki">
+			<include>
+				<context ref="syntaxe-mediawiki"/>
+				<context ref="html:html"/>
+			</include>
+		</context>
+	</definitions>
+</language>

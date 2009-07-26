@@ -1,0 +1,69 @@
+__NOTOC__
+
+= Démo de la coloration syntaxique pour MediaWiki =
+
+== Emphases ==
+
+Voici une ''emphase'', ensuite une '''emphase plus importante''', et pour finir une '''''emphase encore plus importante'''''.
+
+<!--Commentaire-->
+
+== Liens ==
+
+Lien direct: http://fr.wikipedia.org
+
+[http://fr.wikipedia.org Wikipédia]
+
+[[:fr:Wikipedia:Page|Texte cliquable]]
+
+[[Image:Fichier.png|100px|]]
+
+== Listes ==
+
+* Liste
+** Liste
+
+# Liste
+## Liste
+
+<ul>
+	<li>Liste
+	<ul>
+		<li>Liste</li>
+	</ul></li>
+</ul>
+
+:Indentation
+
+:* Liste et indentation
+:# Liste et indentation
+
+; Terme à définir: explication.
+
+== Autres ==
+
+ Texte préformaté
+
+Voici la table des matières:
+
+__TOC__
+
+Voici une ligne:
+
+----
+
+Pseudonyme: ~~~
+Pseudonyme et date: ~~~~
+Date: ~~~~~
+
+Tableau:
+
+{| border="1"
+|+ légende
+| Texte
+| Texte
+|-
+| Texte
+| Texte
+|}
+
