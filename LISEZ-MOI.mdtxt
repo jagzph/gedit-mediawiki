@@ -14,7 +14,9 @@ gedit-mediawiki est distribué suivant les termes de la GNU General Public Licen
 
 - Décompresser l'archive. Dans une console (dans le même dossier que celui où se trouve l'archive):
 
-		tar xvf nom-de-l_archive.tbz2
+		tar xvf gedit-mediawiki-x.tbz2
+
+	Ne pas oublier d'adapter le nom de l'archive.
 
 - Toujours dans la console, s'assurer que le chemin d'installation existe:
 
@@ -22,7 +24,9 @@ gedit-mediawiki est distribué suivant les termes de la GNU General Public Licen
 
 - Toujours dans la console, copier le fichier de langage dans le bon dossier:
 
-		cp gedit-mediawiki/mediawiki.lang ~/.local/share/gtksourceview-2.0/language-specs/
+		cp gedit-mediawiki-x/mediawiki.lang ~/.local/share/gtksourceview-2.0/language-specs/
+
+	Ne pas oublier d'adapter le nom du dossier `gedit-mediawiki-x`.
 
 La coloration syntaxique pour la syntaxe MediaWiki sera ajoutée à l'utilisateur courant (l'installation se fait donc sans les droits du superadministrateur). Le dossier `gedit-mediawiki` créé par l'extraction de l'archive peut être effacé ou mis à la corbeille après l'installation.
 
