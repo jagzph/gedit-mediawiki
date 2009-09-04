@@ -4,6 +4,9 @@
 ##
 ########################################################################
 
+# Chemin vers le bureau
+bureau=`xdg-user-dir DESKTOP`
+
 # Récupère le dernier tag (qui représente la dernière version)
 tag=`bzr tags | tail -n 1 | cut -d ' ' -f 1`
 
@@ -29,14 +32,16 @@ bz2: menage-bz2 ChangeLog
 	bzr export -r tag:$(tag) $(tag)
 	mv ChangeLog $(tag)/
 	php ./scripts.cli.php mdtxt ChangeLogDerniereVersion
-	mv ChangeLogDerniereVersion.mdtxt ~/Bureau/ChangeLog-$(tag).mdtxt
+	mv ChangeLogDerniereVersion.mdtxt $(bureau)/ChangeLog-$(tag).mdtxt
 	mv ChangeLogDerniereVersion $(tag)/
 	rm -f $(tag)/Makefile
 	rm -f $(tag)/scripts.cli.php
-	tar -jcvf $(tag).tar.bz2 $(tag)
+	tar --bzip2 -cvf $(tag).tar.bz2 $(tag) # --bzip2 = -j
+	zip -rv $(tag).zip $(tag)
 	rm -rf $(tag)
 	mv $(tag).tar.bz2 $(tag).tbz2 # Drupal bogue avec l'ajout de fichiers .tar.bz2
-	mv $(tag).tbz2 ~/Bureau/
+	mv $(tag).zip $(bureau)/
+	mv $(tag).tbz2 $(bureau)/
 
 ChangeLog: menage-ChangeLog
 	# Est basé sur http://telecom.inescporto.pt/~gjc/gnulog.py

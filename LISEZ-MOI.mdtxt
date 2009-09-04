@@ -10,9 +10,11 @@ gedit-mediawiki est distribué suivant les termes de la GNU General Public Licen
 
 ## Installation
 
+*Note: je suppose que la coloration syntaxique fonctionne bien avec gedit sous Windows, mais je n'ai pas fait de recherche en ce sens.*
+
 - Télécharger l'archive de la dernière version de gedit-mediawiki sur <http://www.jpfleury.net/gedit-mediawiki>.
 
-- Décompresser l'archive. Dans une console (dans le même dossier que celui où se trouve l'archive):
+- Décompresser l'archive. Dans une console sous GNU/Linux (dans le même dossier que celui où se trouve l'archive):
 
 		tar xvf gedit-mediawiki-x.tbz2
 
