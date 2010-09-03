@@ -1,59 +1,51 @@
 ########################################################################
 ##
-## VARIABLES
+## Variables.
 ##
 ########################################################################
 
-# Chemin vers le bureau
-bureau=`xdg-user-dir DESKTOP`
-
-# Récupère le dernier tag (qui représente la dernière version)
-tag=`bzr tags | tail -n 1 | cut -d ' ' -f 1`
-
-# Récupère le numéro de la première révision du dernier tag
-premiereRevTag=`bzr tags | tail -n 2 | head -n 1 | rev | cut -d ' ' -f 1 | rev | xargs expr 1 + `
+# Dernière version, représentée par la dernière étiquette.
+version:=$(shell bzr tags | sort -k2n,2n | tail -n 1 | cut -d ' ' -f 1)
 
 ########################################################################
 ##
-## MÉTACIBLES
+## Métacibles.
 ##
 ########################################################################
 
-# Crée une archive .bz2, y ajoute les fichiers qui ne sont pas versionnés mais nécessaires, supprime les fichiers versionnés mais inutiles. À faire après un bzr tag... quand une nouvelle version est sortie.
-publier: bz2
+# Crée l'archive; y ajoute les fichiers qui ne sont pas versionnés, mais nécessaires; supprime les fichiers versionnés, mais inutiles. À faire après un `bzr tag ...` pour la sortie d'une nouvelle version.
+publier: archive
 
 ########################################################################
 ##
-## CIBLES
+## Cibles.
 ##
 ########################################################################
 
-bz2: menage-bz2 ChangeLog
-	bzr export -r tag:$(tag) $(tag)
-	mv ChangeLog $(tag)/
-	php ./scripts.cli.php mdtxt ChangeLogDerniereVersion
-	mv ChangeLogDerniereVersion.mdtxt $(bureau)/ChangeLog-$(tag).mdtxt
-	mv ChangeLogDerniereVersion $(tag)/
-	rm -f $(tag)/Makefile
-	rm -f $(tag)/scripts.cli.php
-	tar --bzip2 -cvf $(tag).tar.bz2 $(tag) # --bzip2 = -j
-	zip -rv $(tag).zip $(tag)
-	rm -rf $(tag)
-	mv $(tag).tar.bz2 $(tag).tbz2 # Drupal bogue avec l'ajout de fichiers .tar.bz2
-	mv $(tag).zip $(bureau)/
-	mv $(tag).tbz2 $(bureau)/
+archive: menage-archive ChangeLog
+	bzr export -r tag:$(version) gedit-mediawiki
+	mv doc/ChangeLog gedit-mediawiki/doc
+	mv doc/version.txt gedit-mediawiki/doc
+	rm -f gedit-mediawiki/Makefile
+	zip -rv gedit-mediawiki.zip gedit-mediawiki
+	rm -rf gedit-mediawiki
 
 ChangeLog: menage-ChangeLog
-	# Est basé sur http://telecom.inescporto.pt/~gjc/gnulog.py
-	# Ne pas oublier de mettre ce fichier dans le dossier de plugins de bzr,
-	# par exemple ~/.bazaar/plugins/
-	BZR_GNULOG_SPLIT_ON_BLANK_LINES=0 bzr log -v --log-format 'gnu' -r1..tag:$(tag) > ChangeLog
-	BZR_GNULOG_SPLIT_ON_BLANK_LINES=0 bzr log -v --log-format 'gnu' -r revno:$(premiereRevTag)..tag:$(tag) > ChangeLogDerniereVersion
+	# Est basé sur <http://telecom.inescporto.pt/~gjc/gnulog.py>. Ne pas oublier de mettre ce fichier dans le dossier des extensions de bazaar, par exemple `~/.bazaar/plugins/`.
+	BZR_GNULOG_SPLIT_ON_BLANK_LINES=0 bzr log -v --log-format 'gnu' -r1..tag:$(version) > doc/ChangeLog
 
-menage-bz2:
-	rm -f $(tag).tbz2
+menage-archive:
+	rm -f gedit-mediawiki.zip
 
 menage-ChangeLog:
-	rm -f ChangeLog
-	rm -f ChangeLogDerniereVersion
+	rm -f doc/ChangeLog
+
+menage-version.txt:
+	rm -f doc/version.txt
+
+push:
+	bzr push lp:~jpfle/+junk/gedit-mediawiki
+
+version.txt: menage-version.txt
+	echo $(version) > doc/version.txt
 
