@@ -6,14 +6,14 @@ gedit-mediawiki ajoute dans gedit, l'éditeur de texte par défaut de Gnome, la 
 
 ## Installation
 
-- [Télécharger l'archive de la dernière version.](http://www.jpfleury.net/t.php?l=gedit-mediawiki)
+- [Télécharger l'archive de la dernière version.](http://www.jpfleury.net/site/fichiers/gedit-mediawiki/gedit-mediawiki.zip)
 - Décompresser l'archive.
 - S'assurer que le chemin d'installation existe.
 - Copier le fichier de langage dans le bon dossier.
 
 Voici les commandes pour effectuer toutes ces étapes dans une console sous GNU/Linux:
 
-	wget http://www.jpfleury.net/t.php?l=gedit-mediawiki
+	wget http://www.jpfleury.net/site/fichiers/gedit-mediawiki/gedit-mediawiki.zip
 	unzip gedit-mediawiki.zip
 	mkdir -p ~/.local/share/gtksourceview-2.0/language-specs/
 	cp gedit-mediawiki/mediawiki.lang ~/.local/share/gtksourceview-2.0/language-specs/
