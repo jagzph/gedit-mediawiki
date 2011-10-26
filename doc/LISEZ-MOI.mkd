@@ -1,42 +1,39 @@
 ## Aperçu
 
-gedit-mediawiki ajoute dans gedit, l'éditeur de texte par défaut de Gnome, la coloration syntaxique pour la [syntaxe MediaWiki](http://meta.wikimedia.org/wiki/Aide:Syntaxe_wiki).
+gedit-mediawiki ajoute la coloration syntaxique de la [syntaxe MediaWiki](http://meta.wikimedia.org/wiki/Aide:Syntaxe_wiki) dans gedit, l'éditeur de texte par défaut de Gnome.
 
-<img src="http://www.jpfleury.net/site/fichiers/gedit-mediawiki/exemple1.jpg" width="685" height="848" alt="Coloration syntaxique pour la syntaxe MediaWiki dans gedit." />
+<img src="http://jpfleury.indefero.net/p/gedit-mediawiki/source/tree/master/doc/exemple1.jpg" width="685" height="848" alt="Coloration syntaxique pour la syntaxe MediaWiki dans gedit." />
 
 ## Installation
 
-- [Télécharger l'archive de la dernière version.](http://www.jpfleury.net/site/fichiers/gedit-mediawiki/gedit-mediawiki.zip)
-- Décompresser l'archive.
-- S'assurer que le chemin d'installation existe.
-- Copier le fichier de langage dans le bon dossier.
+- [Télécharger la dernière version du fichier de définition de gedit-mediawiki.](http://jpfleury.indefero.net/p/gedit-mediawiki/source/file/master/mediawiki.lang)
+- Copier le fichier `mediawiki.lang` dans le dossier approprié (créer le dossier s'il n'existe pas):
 
-Voici les commandes pour effectuer toutes ces étapes dans une console sous GNU/Linux:
+- pour gedit 2: `~/.local/share/gtksourceview-2.0/language-specs/`
+- pour gedit 3: `~/.local/share/gtksourceview-3.0/language-specs/`
 
-	wget http://www.jpfleury.net/site/fichiers/gedit-mediawiki/gedit-mediawiki.zip
-	unzip gedit-mediawiki.zip
-	mkdir -p ~/.local/share/gtksourceview-2.0/language-specs/
-	cp gedit-mediawiki/mediawiki.lang ~/.local/share/gtksourceview-2.0/language-specs/
-
-La coloration syntaxique pour la syntaxe MediaWiki sera ajoutée à l'utilisateur courant (l'installation se fait donc sans les droits d'administration). Le dossier `gedit-mediawiki` créé par l'extraction de l'archive peut être effacé ou mis à la corbeille après l'installation.
+La coloration syntaxique pour la syntaxe MediaWiki sera ajoutée à l'utilisateur courant (l'installation se fait donc sans les droits d'administration).
 
 Ne pas oublier de relancer gedit si ce dernier est déjà ouvert.
 
 ## Désinstallation
 
-- Supprimer le fichier précédemment installé:
-
-		rm ~/.local/share/gtksourceview-2.0/language-specs/mediawiki.lang
+Supprimer le fichier précédemment installé.
 
 ## Utilisation
 
 Choisir la coloration en allant dans *Affichage > Mode de coloration > Autres* et cocher *MediaWiki*.
 
+Un fichier démo se trouve dans le [dossier `doc`](http://jpfleury.indefero.net/p/gedit-mediawiki/source/tree/master/doc) de gedit-mediawiki.
+
 ## Développement
 
-Le logiciel bazaar est utilisé pour le versionnage des fichiers. Une copie de la version de développement peut être récupérée avec la commande suivante:
+Le logiciel Git est utilisé pour la gestion de versions. [Le dépôt peut être consulté en ligne ou récupéré en local.][git]
 
-	bzr branch lp:~jpfle/+junk/gedit-mediawiki
+gedit-mediawiki dispose également d'un [système de suivi], sur lequel les rapports de bogues et les suggestions peuvent être soumis.
+
+[git]: http://jpfleury.indefero.net/p/gedit-mediawiki/source/tree/master/
+[système de suivi]: http://jpfleury.indefero.net/p/gedit-mediawiki/issues/
 
 ## Licence
 
