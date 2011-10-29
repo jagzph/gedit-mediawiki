@@ -8,13 +8,16 @@ Voici une capture d'écran (cliquer pour télécharger l'image au format origina
 
 ## Installation
 
-- [Télécharger la dernière version du fichier de définition de gedit-mediawiki.](http://jpfleury.indefero.net/p/gedit-mediawiki/source/file/master/mediawiki.lang)
+- [Télécharger l'archive de la dernière version.](http://jpfleury.indefero.net/p/gedit-mediawiki/source/download/master/)
+
+- Extraire l'archive.
+
 - Copier le fichier `mediawiki.lang` dans le dossier approprié (créer le dossier s'il n'existe pas):
 
-- pour gedit 2: `~/.local/share/gtksourceview-2.0/language-specs/`
-- pour gedit 3: `~/.local/share/gtksourceview-3.0/language-specs/`
+	- pour gedit 2: `~/.local/share/gtksourceview-2.0/language-specs/`
+	- pour gedit 3: `~/.local/share/gtksourceview-3.0/language-specs/`
 
-La coloration syntaxique pour la syntaxe MediaWiki sera ajoutée à l'utilisateur courant (l'installation se fait donc sans les droits d'administration).
+La coloration syntaxique de la syntaxe MediaWiki sera ajoutée à l'utilisateur courant (l'installation se fait donc sans les droits d'administration).
 
 Ne pas oublier de relancer gedit si ce dernier est déjà ouvert.
 
@@ -24,9 +27,9 @@ Supprimer le fichier précédemment installé.
 
 ## Utilisation
 
-Choisir la coloration en allant dans *Affichage > Mode de coloration > Autres* et cocher *MediaWiki*.
+Choisir la coloration en allant dans le menu *Affichage > Mode de coloration > Autres* de gedit et cocher *MediaWiki*.
 
-Un fichier démo se trouve dans le [dossier `doc`](http://jpfleury.indefero.net/p/gedit-mediawiki/source/tree/master/doc) de gedit-mediawiki.
+Un fichier démo se trouve dans le dossier `doc` de gedit-mediawiki.
 
 ## Développement
 
