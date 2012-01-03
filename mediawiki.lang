@@ -25,53 +25,71 @@ MA 02110-1301, USA.
 	</metadata>
 	
 	<styles>
-		<style id="emphase" _name="Emphase" map-to="def:statement"/>
-		<style id="identification" _name="Identification" map-to="def:statement"/>
-		<style id="lien" _name="Lien" map-to="def:underlined"/>
+		<style id="emphase-forte" _name="Emphase forte" map-to="def:statement"/>
+		<style id="emphase-legere" _name="Emphase légère" map-to="def:doc-comment-element"/>
+		<style id="signature" _name="Signature" map-to="def:statement"/>
+		<style id="url" _name="URL" map-to="def:underlined"/>
+		<style id="lien" _name="Lien" map-to="def:comment"/>
+		<style id="symbole-lien" _name="Symbole dans un lien" map-to="def:shebang"/>
 		<style id="ligne" _name="Ligne" map-to="def:type"/>
-		<style id="liste-et-indentation" _name="Liste et indentation" map-to="def:statement"/>
-		<style id="mots-cles" _name="Mots-clés" map-to="def:statement"/>
-		<style id="preformate" _name="Texte préformaté" map-to="def:comment"/>
-		<style id="symbole" _name="Symbole" map-to="def:statement"/>
+		<style id="liste" _name="Liste" map-to="def:statement"/>
+		<style id="mot-magique" _name="Mot magique" map-to="def:statement"/>
+		<style id="symbole-tableau" _name="Symbole d'un tableau" map-to="def:statement"/>
+		<style id="preformatage" _name="Préformatage" map-to="def:identifier"/>
+		<style id="redirection" _name="Redirection" map-to="def:statement"/>
 		<style id="titre" _name="Titre" map-to="def:type"/>
+		<style id="modele" _name="Modèle" map-to="def:statement"/>
 	</styles>
 	
 	<definitions>
-		<define-regex id="adresse">[a-z]+://[^ ]+</define-regex>
+		<!-- Voir <http://www.mediawiki.org/wiki/Manual:$wgUrlProtocols>. -->
+		<define-regex id="regex-url">(http://|https://|ftp://|irc://|gopher://|telnet://|nntp://|worldwind://|mailto:|news:)[^\s]+</define-regex>
 		
-		<context id="emphase" style-ref="emphase">
-			<match>'{2,3}</match>
+		<define-regex id="regex-lien-interne">\[\[\s*[^\[\]\s][^\[\]]*?((\|)[^\[\]\|]*)?\]\]</define-regex>
+		
+		<context id="double-emphase" style-ref="emphase-forte">
+			<match>'''''.+?'''''</match>
 		</context>
 		
-		<context id="identification" style-ref="identification">
+		<context id="emphase-forte" style-ref="emphase-forte">
+			<match>'''.+?'''</match>
+		</context>
+		
+		<context id="emphase-legere" style-ref="emphase-legere">
+			<match>''.+?''</match>
+		</context>
+		
+		<!-- Voir <http://www.mediawiki.org/wiki/Help:Signatures/fr>. -->
+		<context id="signature" style-ref="signature">
 			<match>~{3,5}</match>
 		</context>
 		
-		<context id="lien-adresse" style-ref="lien">
-			<match>\%{adresse}</match>
-		</context>
-		
-		<context id="lien-crochet-double">
-			<match>(\[\[:?)[^:\|\]]*(:|\|)?[^:\|\]]*(:|\|)?[^:\|\]]*(:|\|)?[^:\|\]]*(:|\|)?[^:\|\]]*(:|\|)?[^:\|\]]*(:|\|)?[^:\|\]]*(:|\|)?[^\]]*(\]\])</match>
+		<context id="url" style-ref="url">
+			<match>(\%{regex-url})</match>
 			<include>
-				<context sub-pattern="1" style-ref="symbole"/>
-				<context sub-pattern="2" style-ref="symbole"/>
-				<context sub-pattern="3" style-ref="symbole"/>
-				<context sub-pattern="4" style-ref="symbole"/>
-				<context sub-pattern="5" style-ref="symbole"/>
-				<context sub-pattern="6" style-ref="symbole"/>
-				<context sub-pattern="7" style-ref="symbole"/>
-				<context sub-pattern="8" style-ref="symbole"/>
-				<context sub-pattern="9" style-ref="symbole"/>
+				<context sub-pattern="1" style-ref="lien"/>
 			</include>
 		</context>
 		
-		<context id="lien-crochet-simple">
-			<match>(?&lt;!\[)(\[)(\%{adresse})?.*(\])(?!\])</match>
+		<context id="lien-interne" style-ref="lien">
+			<match>\%{regex-lien-interne}</match>
 			<include>
-				<context sub-pattern="1" style-ref="symbole"/>
-				<context sub-pattern="2" style-ref="lien"/>
-				<context sub-pattern="3" style-ref="symbole"/>
+				<context sub-pattern="2" style-ref="symbole-lien"/>
+			</include>
+		</context>
+		
+		<context id="lien-externe" style-ref="lien">
+			<match extended="true">
+				(?&lt;!\[)
+				\[
+				\s*
+				(\%{regex-url})
+				[^\[\]]*
+				\]
+				(?!\])
+			</match>
+			<include>
+				<context sub-pattern="1" style-ref="url"/>
 			</include>
 		</context>
 		
@@ -79,46 +97,218 @@ MA 02110-1301, USA.
 			<match>^-{4,}</match>
 		</context>
 		
-		<context id="liste-definition" style-ref="liste-et-indentation">
-			<match>^;\s*[^\s][^:]*:?</match>
+		<context id="liste">
+			<match>^((\*|#(?!REDIRECT))+)\s*[^\*#\s]+</match>
+			<include>
+				<context sub-pattern="1" style-ref="liste"/>
+			</include>
 		</context>
 		
-		<context id="liste-et-indentation" style-ref="liste-et-indentation">
-			<match>^:*(\*|#)*</match>
+		<context id="liste-terme">
+			<match extended="true">
+				^(;)
+				\s*
+				[^;:\s]+?
+				[^:]*
+				(:?)
+			</match>
+			<include>
+				<context sub-pattern="1" style-ref="liste"/>
+				<context sub-pattern="2" style-ref="liste"/>
+			</include>
 		</context>
 		
-		<context id="mots-cles" style-ref="mots-cles">
-			<keyword>__NOTOC__</keyword>
-			<keyword>__TOC__</keyword>
-			<keyword>REDIRECT</keyword>
+		<context id="liste-definition">
+			<match extended="true">
+				^(:)
+				\s*
+				[^;:\s]+
+			</match>
+			<include>
+				<context sub-pattern="1" style-ref="liste"/>
+			</include>
 		</context>
 		
-		<context id="preformate" style-ref="preformate">
+		<!-- Mots magiques. Voir <http://www.mediawiki.org/wiki/Help:Magic_words>. -->
+		
+		<context id="mot-magique-1" style-ref="mot-magique">
+			<prefix>__</prefix>
+			<suffix>__</suffix>
+			
+			<!-- Behavior switches. -->
+			<keyword>NOTOC</keyword>
+			<keyword>FORCETOC</keyword>
+			<keyword>TOC</keyword>
+			<keyword>NOEDITSECTION</keyword>
+			<keyword>NEWSECTIONLINK</keyword>
+			<keyword>NONEWSECTIONLINK</keyword>
+			<keyword>NOGALLERY</keyword>
+			<keyword>HIDDENCAT</keyword>
+			<keyword>NOCONTENTCONVERT</keyword>
+			<keyword>NOCC</keyword>
+			<keyword>NOTITLECONVERT</keyword>
+			<keyword>NOTC</keyword>
+			<keyword>START</keyword>
+			<keyword>END</keyword>
+			<keyword>INDEX</keyword>
+			<keyword>NOINDEX</keyword>
+			<keyword>STATICREDIRECT</keyword>
+		</context>
+		
+		<context id="mot-magique-2" style-ref="mot-magique">
+			<prefix>{{</prefix>
+			<suffix>}}</suffix>
+			
+			<!-- Date and time. -->
+			<keyword>CURRENTYEAR</keyword>
+			<keyword>CURRENTMONTH</keyword>
+			<keyword>CURRENTMONTHNAME</keyword>
+			<keyword>CURRENTMONTHNAMEGEN</keyword>
+			<keyword>CURRENTMONTHABBREV</keyword>
+			<keyword>CURRENTDAY</keyword>
+			<keyword>CURRENTDAY2</keyword>
+			<keyword>CURRENTDOW</keyword>
+			<keyword>CURRENTDAYNAME</keyword>
+			<keyword>CURRENTTIME</keyword>
+			<keyword>CURRENTHOUR</keyword>
+			<keyword>CURRENTWEEK</keyword>
+			<keyword>CURRENTTIMESTAMP</keyword>
+			<keyword>LOCALYEAR</keyword>
+			<keyword>LOCALMONTH</keyword>
+			<keyword>LOCALMONTHNAME</keyword>
+			<keyword>LOCALMONTHNAMEGEN</keyword>
+			<keyword>LOCALMONTHABBREV</keyword>
+			<keyword>LOCALDAY</keyword>
+			<keyword>LOCALDAY2</keyword>
+			<keyword>LOCALDOW</keyword>
+			<keyword>LOCALDAYNAME</keyword>
+			<keyword>LOCALTIME</keyword>
+			<keyword>LOCALHOUR</keyword>
+			<keyword>LOCALWEEK</keyword>
+			<keyword>LOCALTIMESTAMP</keyword>
+
+			<!-- Technical metadata. -->
+			<keyword>SITENAME</keyword>
+			<keyword>SERVER</keyword>
+			<keyword>SERVERNAME</keyword>
+			<keyword>DIRMARK</keyword>
+			<keyword>DIRECTIONMARK</keyword>
+			<keyword>SCRIPTPATH</keyword>
+			<keyword>STYLEPATH</keyword>
+			<keyword>CURRENTVERSION</keyword>
+			<keyword>CONTENTLANGUAGE</keyword>
+			<keyword>CONTENTLANG</keyword>
+			<keyword>REVISIONID</keyword>
+			<keyword>REVISIONDAY</keyword>
+			<keyword>REVISIONDAY2</keyword>
+			<keyword>REVISIONMONTH</keyword>
+			<keyword>REVISIONMONTH1</keyword>
+			<keyword>REVISIONYEAR</keyword>
+			<keyword>REVISIONTIMESTAMP</keyword>
+			<keyword>REVISIONUSER</keyword>
+
+			<!-- Statistics. -->
+			<keyword>NUMBEROFPAGES</keyword>
+			<keyword>NUMBEROFARTICLES</keyword>
+			<keyword>NUMBEROFFILES</keyword>
+			<keyword>NUMBEROFEDITS</keyword>
+			<keyword>NUMBEROFVIEWS</keyword>
+			<keyword>NUMBEROFUSERS</keyword>
+			<keyword>NUMBEROFADMINS</keyword>
+			<keyword>NUMBEROFACTIVEUSERS</keyword>
+
+			<!-- Page names. -->
+			<keyword>FULLPAGENAME</keyword>
+			<keyword>PAGENAME</keyword>
+			<keyword>BASEPAGENAME</keyword>
+			<keyword>SUBPAGENAME</keyword>
+			<keyword>SUBJECTPAGENAME</keyword>
+			<keyword>TALKPAGENAME</keyword>
+			<keyword>FULLPAGENAMEE</keyword>
+			<keyword>PAGENAMEE</keyword>
+			<keyword>BASEPAGENAMEE</keyword>
+			<keyword>SUBPAGENAMEE</keyword>
+			<keyword>SUBJECTPAGENAMEE</keyword>
+			<keyword>TALKPAGENAMEE</keyword>
+
+			<!-- Namespaces. -->
+			<keyword>NAMESPACE</keyword>
+			<keyword>SUBJECTSPACE</keyword>
+			<keyword>ARTICLESPACE</keyword>
+			<keyword>TALKSPACE</keyword>
+			<keyword>NAMESPACEE</keyword>
+			<keyword>SUBJECTSPACEE</keyword>
+			<keyword>TALKSPACEE</keyword>
+		</context>
+		
+		<context id="tableau">
+			<start>^\s*({\|)</start>
+			<end>^\s*(\|})</end>
+			<include>
+				<context sub-pattern="1" where="start" style-ref="symbole-tableau"/>
+				<context sub-pattern="1" where="end" style-ref="symbole-tableau"/>
+				<context ref="double-emphase"/>
+				<context ref="emphase-forte"/>
+				<context ref="emphase-legere"/>
+				<context ref="signature"/>
+				<context ref="url"/>
+				<context ref="lien-interne"/>
+				<context ref="lien-externe"/>
+				<context ref="mot-magique-1"/>
+				<context ref="mot-magique-2"/>
+				<context id="symbole-tableau" extend-parent="false" style-ref="symbole-tableau">
+					<match extended="true">
+						^\s*(\|\+ | \|-+ | !) | \| | !{2,}
+					</match>
+				</context>
+			</include>
+		</context>
+		
+		<context id="preformatage" style-ref="preformatage">
 			<match>^ +[^ ]+.*$</match>
 		</context>
 		
-		<context id="symbole" style-ref="symbole">
-			<match>(\{|\}|\|\+|\|-*)</match>
+		<context id="redirection">
+			<match>^(#REDIRECT(ION)?)\s*(\%{regex-lien-interne})</match>
+			<include>
+				<context sub-pattern="1" style-ref="redirection"/>
+				<context sub-pattern="2" style-ref="lien"/>
+				<context sub-pattern="4" style-ref="symbole-lien"/>
+			</include>
 		</context>
 		
 		<context id="titre" style-ref="titre">
 			<match>^=.+=\s*$</match>
 		</context>
 		
+		<context id="modele">
+			<match>({{)\s*[^{}\s]+[^{}]*(}})</match>
+			<include>
+				<context sub-pattern="1" style-ref="modele"/>
+				<context sub-pattern="2" style-ref="modele"/>
+			</include>
+		</context>
+		
 		<context id="syntaxe-mediawiki">
 			<include>
-				<context ref="emphase"/>
-				<context ref="identification"/>
-				<context ref="lien-adresse"/>
-				<context ref="lien-crochet-double"/>
-				<context ref="lien-crochet-simple"/>
+				<context ref="double-emphase"/>
+				<context ref="emphase-forte"/>
+				<context ref="emphase-legere"/>
+				<context ref="signature"/>
+				<context ref="url"/>
+				<context ref="lien-interne"/>
+				<context ref="lien-externe"/>
 				<context ref="ligne"/>
+				<context ref="liste"/>
+				<context ref="liste-terme"/>
 				<context ref="liste-definition"/>
-				<context ref="liste-et-indentation"/>
-				<context ref="mots-cles"/>
-				<context ref="preformate"/>
-				<context ref="symbole"/>
+				<context ref="mot-magique-1"/>
+				<context ref="mot-magique-2"/>
+				<context ref="tableau"/>
+				<context ref="preformatage"/>
+				<context ref="redirection"/>
 				<context ref="titre"/>
+				<context ref="modele"/>
 			</include>
 		</context>
 		
