@@ -1,3 +1,5 @@
+<p lang="en"><strong><a hreflang="en" href="http://www.jpfleury.net/en/software/gedit-mediawiki.php">Read this page in English.</a></strong></p>
+
 ## Aperçu
 
 gedit-mediawiki ajoute la coloration syntaxique de la [syntaxe MediaWiki](http://meta.wikimedia.org/wiki/Aide:Syntaxe_wiki) dans gedit, l'éditeur de texte par défaut de Gnome.
@@ -17,9 +19,7 @@ Voici une capture d'écran (cliquer pour télécharger l'image au format origina
 	- pour gedit 2: `~/.local/share/gtksourceview-2.0/language-specs/`
 	- pour gedit 3: `~/.local/share/gtksourceview-3.0/language-specs/`
 
-La coloration syntaxique de la syntaxe MediaWiki sera ajoutée à l'utilisateur courant (l'installation se fait donc sans les droits d'administration).
-
-Ne pas oublier de relancer gedit si ce dernier est déjà ouvert.
+La coloration syntaxique de la syntaxe MediaWiki sera ajoutée à l'utilisateur courant (l'installation se fait donc sans les droits d'administration). Le dossier créé par l'extraction de l'archive peut être supprimé après l'installation.
 
 ## Désinstallation
 
@@ -27,7 +27,9 @@ Supprimer le fichier précédemment installé.
 
 ## Utilisation
 
-Choisir la coloration en allant dans le menu *Affichage > Mode de coloration > Autres* de gedit et cocher *MediaWiki*.
+Avant toute chose, redémarrer gedit s'il est ouvert.
+
+Choisir la coloration en allant dans le menu *Affichage > Mode de coloration > Autres* de gedit et en cochant *MediaWiki*.
 
 Un fichier démo se trouve dans le dossier `doc` de gedit-mediawiki.
 
@@ -43,7 +45,7 @@ gedit-mediawiki dispose également d'un [système de suivi], sur lequel les rapp
 ## Licence
 
 Auteur: Jean-Philippe Fleury <contact@jpfleury.net>  
-Copyright © Jean-Philippe Fleury, 2009-2011.
+Copyright © Jean-Philippe Fleury, 2009-2012.
 
 Ce programme est un logiciel libre; vous pouvez le redistribuer ou
 le modifier suivant les termes de la GNU Lesser General Public License telle

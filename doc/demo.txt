@@ -1,69 +1,59 @@
 __NOTOC__
 
-= Démo de la coloration syntaxique pour MediaWiki =
+== Démo de la coloration syntaxique pour MediaWiki ==
 
-== Emphases ==
+Nous sommes le {{CURRENTDAY}} {{CURRENTMONTHNAME}} {{CURRENTYEAR}}.
 
-Voici une ''emphase'', ensuite une '''emphase plus importante''', et pour finir une '''''emphase encore plus importante'''''.
+=== Emphases ===
 
-<!--Commentaire-->
+Voici une ''emphase légère'', ensuite une '''emphase forte''', et pour finir une '''''double emphase'''''.
 
-== Liens ==
+=== Liens et listes ===
 
-Lien direct: http://fr.wikipedia.org
+Voici une liste non ordonnée:
 
-[http://fr.wikipedia.org Wikipédia]
+* Lien direct: http://fr.wikipedia.org
+* Lien externe: [http://fr.wikipedia.org Wikipédia]
+* Lien interne: [[GNU | système d'exploitation libre GNU]]
 
-[[:fr:Wikipedia:Page|Texte cliquable]]
-
-[[Image:Fichier.png|100px|]]
-
-== Listes ==
-
-* Liste
-** Liste
-
-# Liste
-## Liste
+Voici du code HTML:
 
 <ul>
-	<li>Liste
+	<li>Item de premier niveau
 	<ul>
-		<li>Liste</li>
+		<li>Item de second niveau</li>
 	</ul></li>
 </ul>
 
-:Indentation
+Voici maintenant une liste ordonnée:
 
-:* Liste et indentation
-:# Liste et indentation
+# Signature seule: ~~~
+# Signature et horodatage: ~~~~
+# Horodatage seul: ~~~~~
+## Item de second niveau
+# Autre item de premier niveau
 
-; Terme à définir: explication.
+Voici une liste de définitions:
 
-== Autres ==
+; Premier terme à définir: Explication sur une seule ligne
+; Deuxième terme à définir
+: Explication
+: sur plusieurs lignes
+
+=== Autres ===
 
  Texte préformaté
 
-Voici la table des matières:
-
-__TOC__
-
-Voici une ligne:
+Voici une ligne horizontale:
 
 ----
 
-Pseudonyme: ~~~
-Pseudonyme et date: ~~~~
-Date: ~~~~~
-
-Tableau:
-
 {| border="1"
-|+ légende
-| Texte
-| Texte
-|-
-| Texte
-| Texte
-|}
+ |+ Voici un tableau
+ | Texte <!-- Commentaire qui ne sera pas affiché. -->
+ | Texte
+ |-
+ | Texte
+ | Texte
+ |}
 
