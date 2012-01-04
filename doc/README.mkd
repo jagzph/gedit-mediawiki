@@ -4,9 +4,9 @@
 
 gedit-mediawiki adds [MediaWiki](http://meta.wikimedia.org/wiki/Help:Editing) syntax highlighting in gedit, the default Gnome text editor.
 
-Here's a screenshot (click to download the original image):
+Here's a screenshot:
 
-<a href="http://jpfleury.indefero.net/p/gedit-mediawiki/source/tree/master/doc/exemple1-grand.png"><img src="http://jpfleury.indefero.net/p/gedit-mediawiki/source/tree/master/doc/exemple1-petit.jpg" width="685" height="848" alt="MediaWiki syntax highlighting in gedit." /></a>
+<img src="http://jpfleury.indefero.net/p/gedit-mediawiki/source/tree/master/doc/exemple1.png" width="685" height="1112" alt="MediaWiki syntax highlighting in gedit." />
 
 ## Installation
 

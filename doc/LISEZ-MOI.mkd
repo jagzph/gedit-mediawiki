@@ -4,9 +4,9 @@
 
 gedit-mediawiki ajoute la coloration syntaxique de la [syntaxe MediaWiki](http://meta.wikimedia.org/wiki/Aide:Syntaxe_wiki) dans gedit, l'éditeur de texte par défaut de Gnome.
 
-Voici une capture d'écran (cliquer pour télécharger l'image au format original):
+Voici une capture d'écran:
 
-<a href="http://jpfleury.indefero.net/p/gedit-mediawiki/source/tree/master/doc/exemple1-grand.png"><img src="http://jpfleury.indefero.net/p/gedit-mediawiki/source/tree/master/doc/exemple1-petit.jpg" width="685" height="848" alt="Coloration syntaxique pour la syntaxe MediaWiki dans gedit." /></a>
+<img src="http://jpfleury.indefero.net/p/gedit-mediawiki/source/tree/master/doc/exemple1.png" width="685" height="1112" alt="Coloration syntaxique pour la syntaxe MediaWiki dans gedit." />
 
 ## Installation
 

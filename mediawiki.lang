@@ -256,6 +256,7 @@ MA 02110-1301, USA.
 				<context ref="lien-externe"/>
 				<context ref="mot-magique-1"/>
 				<context ref="mot-magique-2"/>
+				<context ref="html:html"/>
 				<context id="symbole-tableau" extend-parent="false" style-ref="symbole-tableau">
 					<match extended="true">
 						^\s*(\|\+ | \|-+ | !) | \| | !{2,}
