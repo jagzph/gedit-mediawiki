@@ -6,11 +6,11 @@ gedit-mediawiki ajoute la coloration syntaxique de la [syntaxe MediaWiki](http:/
 
 Voici une capture d'écran:
 
-<img src="http://jpfleury.indefero.net/p/gedit-mediawiki/source/tree/master/doc/exemple1.png" width="685" height="1112" alt="Coloration syntaxique pour la syntaxe MediaWiki dans gedit." />
+<img src="https://gitorious.org/projets-divers/gedit-mediawiki/raw/master:doc/exemple1.png" width="685" height="1112" alt="Coloration syntaxique pour la syntaxe MediaWiki dans gedit." />
 
 ## Installation
 
-- [Télécharger l'archive de la dernière version.](http://jpfleury.indefero.net/p/gedit-mediawiki/source/download/master/)
+- [Télécharger l'archive de la dernière version.](https://gitorious.org/projets-divers/gedit-mediawiki/archive/master.zip)
 
 - Extraire l'archive.
 
@@ -35,19 +35,14 @@ Un fichier démo se trouve dans le dossier `doc` de gedit-mediawiki.
 
 ## Développement
 
-Dernière version: 1.0.1 (2012-05-22)
+Dernière version: 1.0.2 (2013-09-07)
 
-Le logiciel Git est utilisé pour la gestion de versions. [Le dépôt peut être consulté en ligne ou récupéré en local.][git]
-
-gedit-mediawiki dispose également d'un [système de suivi], sur lequel les rapports de bogues et les suggestions peuvent être soumis.
-
-[git]: http://jpfleury.indefero.net/p/gedit-mediawiki/source/tree/master/
-[système de suivi]: http://jpfleury.indefero.net/p/gedit-mediawiki/issues/
+Le logiciel Git est utilisé pour la gestion de versions. [Le dépôt peut être consulté en ligne ou récupéré en local.](https://gitorious.org/projets-divers/gedit-mediawiki)
 
 ## Licence
 
-Auteur: Jean-Philippe Fleury <contact@jpfleury.net>  
-Copyright © Jean-Philippe Fleury, 2009-2012.
+Auteur: Jean-Philippe Fleury (<http://www.jpfleury.net/contact.php>)  
+Copyright © Jean-Philippe Fleury, 2009-2013.
 
 Ce programme est un logiciel libre; vous pouvez le redistribuer ou
 le modifier suivant les termes de la GNU Lesser General Public License telle

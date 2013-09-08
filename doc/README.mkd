@@ -6,11 +6,11 @@ gedit-mediawiki adds [MediaWiki](http://meta.wikimedia.org/wiki/Help:Editing) sy
 
 Here's a screenshot:
 
-<img src="http://jpfleury.indefero.net/p/gedit-mediawiki/source/tree/master/doc/exemple1.png" width="685" height="1112" alt="MediaWiki syntax highlighting in gedit." />
+<img src="https://gitorious.org/projets-divers/gedit-mediawiki/raw/master:doc/exemple1.png" width="685" height="1112" alt="MediaWiki syntax highlighting in gedit." />
 
 ## Installation
 
-- [Download the archive of the latest version.](http://jpfleury.indefero.net/p/gedit-mediawiki/source/download/master/)
+- [Download the archive of the latest version.](https://gitorious.org/projets-divers/gedit-mediawiki/archive/master.zip)
 
 - Extract the archive.
 
@@ -35,19 +35,14 @@ The folder `doc` contains a demo file.
 
 ## Development
 
-Last version: 1.0.1 (2012-05-22)
+Last version: 1.0.2 (2013-09-07)
 
-Git is used for revision control. [Repository can be browsed online or cloned.][git]
-
-gedit-mediawiki has an [issue tracker], on which bug reports and feature requests can be submitted.
-
-[git]: http://jpfleury.indefero.net/p/gedit-mediawiki/source/tree/master/
-[issue tracker]: http://jpfleury.indefero.net/p/gedit-mediawiki/issues/
+Git is used for revision control. [Repository can be browsed online or cloned.](https://gitorious.org/projets-divers/gedit-mediawiki)
 
 ## License
 
-Author: Jean-Philippe Fleury <contact@jpfleury.net>  
-Copyright © 2009-2012 Jean-Philippe Fleury
+Author: Jean-Philippe Fleury (<http://www.jpfleury.net/en/contact.php>)  
+Copyright © 2009-2013 Jean-Philippe Fleury
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
