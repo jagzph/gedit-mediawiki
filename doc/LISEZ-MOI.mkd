@@ -1,5 +1,7 @@
 <p lang="en"><strong><a hreflang="en" href="http://www.jpfleury.net/en/software/gedit-mediawiki.php">Read this page in English.</a></strong></p>
 
+**Note: ce fichier de coloration syntaxique est maintenant [inclus dans GtkSourceView](https://git.gnome.org/browse/gtksourceview/commit/?id=db965e3a) à partir de la version 3.9.2.**
+
 ## Aperçu
 
 gedit-mediawiki ajoute la coloration syntaxique de la [syntaxe MediaWiki](http://meta.wikimedia.org/wiki/Aide:Syntaxe_wiki) dans gedit, l'éditeur de texte par défaut de Gnome.

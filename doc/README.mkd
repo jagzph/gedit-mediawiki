@@ -1,5 +1,7 @@
 <p lang="fr"><strong><a hreflang="fr" href="http://www.jpfleury.net/logiciels/gedit-mediawiki.php">Lire cette page en français.</a></strong></p>
 
+**Note: this syntax highlighting file is now [shipped with GtkSourceView](https://git.gnome.org/browse/gtksourceview/commit/?id=db965e3a) since version 3.9.2.**
+
 ## Overview
 
 gedit-mediawiki adds [MediaWiki](http://meta.wikimedia.org/wiki/Help:Editing) syntax highlighting in gedit, the default Gnome text editor.
