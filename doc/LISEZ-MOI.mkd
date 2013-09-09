@@ -1,5 +1,7 @@
 <p lang="en"><strong><a hreflang="en" href="http://www.jpfleury.net/en/software/gedit-mediawiki.php">Read this page in English.</a></strong></p>
 
+**Note: ce fichier de coloration syntaxique est maintenant [inclus dans GtkSourceView](https://git.gnome.org/browse/gtksourceview/commit/?id=db965e3a) à partir de la version 3.9.2.**
+
 ## Aperçu
 
 gedit-mediawiki ajoute la coloration syntaxique de la [syntaxe MediaWiki](http://meta.wikimedia.org/wiki/Aide:Syntaxe_wiki) dans gedit, l'éditeur de texte par défaut de Gnome.
@@ -35,7 +37,7 @@ Un fichier démo se trouve dans le dossier `doc` de gedit-mediawiki.
 
 ## Développement
 
-Dernière version: 1.0.2 (2013-09-07)
+Dernière version: 1.0.3 (2013-09-09)
 
 Le logiciel Git est utilisé pour la gestion de versions. [Le dépôt peut être consulté en ligne ou récupéré en local.](https://gitorious.org/projets-divers/gedit-mediawiki)
 
