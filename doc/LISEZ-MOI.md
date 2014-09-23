@@ -1,5 +1,3 @@
-<p lang="en"><strong><a hreflang="en" href="http://www.jpfleury.net/en/software/gedit-mediawiki.php">Read this page in English.</a></strong></p>
-
 **Note: ce fichier de coloration syntaxique est maintenant [inclus dans GtkSourceView](https://git.gnome.org/browse/gtksourceview/commit/?id=db965e3a) à partir de la version 3.9.2.**
 
 ## Aperçu
@@ -8,11 +6,11 @@ gedit-mediawiki ajoute la coloration syntaxique de la [syntaxe MediaWiki](http:/
 
 Voici une capture d'écran:
 
-<img src="https://gitorious.org/projets-divers/gedit-mediawiki/raw/master:doc/exemple1.png" width="685" height="1112" alt="Coloration syntaxique pour la syntaxe MediaWiki dans gedit." />
+<img src="https://raw.githubusercontent.com/jpfleury/gedit-mediawiki/master/doc/exemple1.png" width="685" height="1112" alt="Coloration syntaxique pour la syntaxe MediaWiki dans gedit." />
 
 ## Installation
 
-- [Télécharger l'archive de la dernière version.](https://gitorious.org/projets-divers/gedit-mediawiki/archive/master.zip)
+- [Télécharger l'archive de la dernière version.](https://github.com/jpfleury/gedit-mediawiki/archive/master.zip)
 
 - Extraire l'archive.
 
@@ -37,14 +35,12 @@ Un fichier démo se trouve dans le dossier `doc` de gedit-mediawiki.
 
 ## Développement
 
-Dernière version: 1.0.3 (2013-09-09)
-
-Le logiciel Git est utilisé pour la gestion de versions. [Le dépôt peut être consulté en ligne ou récupéré en local.](https://gitorious.org/projets-divers/gedit-mediawiki)
+Le logiciel Git est utilisé pour la gestion de versions. [Le dépôt peut être consulté en ligne ou récupéré en local.](https://github.com/jpfleury/gedit-mediawiki)
 
 ## Licence
 
 Auteur: Jean-Philippe Fleury (<http://www.jpfleury.net/contact.php>)  
-Copyright © Jean-Philippe Fleury, 2009-2013.
+Copyright © Jean-Philippe Fleury, 2009.
 
 Ce programme est un logiciel libre; vous pouvez le redistribuer ou
 le modifier suivant les termes de la GNU Lesser General Public License telle
@@ -60,4 +56,3 @@ Vous devriez avoir reçu une copie de la Licence publique générale limitée GN
 avec ce programme; si ce n'est pas le cas, écrivez à la:
 Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 MA 02110-1301, USA.
-
