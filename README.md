@@ -19,7 +19,7 @@ Here's a screenshot:
 	- for gedit 2 RHEL6/CentOS6: `/usr/share/gtksourceview-2.0/language-specs/`
 	- for gedit 3 RHEL7/CentOS7: `/usr/share/gtksourceview-3.0/language-specs/`
 
-MediaWiki syntax highlighting will be added for all users plus the .wiki extension
+MediaWiki syntax highlighting will be added for all users plus the `.wiki` extension
 
 ## Uninstallation
 
