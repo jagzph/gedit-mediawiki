@@ -6,20 +6,20 @@ gedit-mediawiki adds [MediaWiki](http://meta.wikimedia.org/wiki/Help:Editing) sy
 
 Here's a screenshot:
 
-<img src="https://raw.githubusercontent.com/jpfleury/gedit-mediawiki/master/doc/exemple1.png" width="685" height="1112" alt="MediaWiki syntax highlighting in gedit." />
+<img src="https://raw.githubusercontent.com/jagzph/gedit-mediawiki/master/doc/exemple1.png" width="685" height="1112" alt="MediaWiki syntax highlighting in gedit." />
 
 ## Installation
 
-- [Download the archive of the latest version.](https://github.com/jpfleury/gedit-mediawiki/archive/master.zip)
+- [Download the archive of the latest version.](https://github.com/jagzph/gedit-mediawiki/archive/master.zip)
 
 - Extract the archive.
 
 - Copy the file `mediawiki.lang` in one of the following two locations (create the folder if it doesn't yet exist):
 
-	- for gedit 2: `~/.local/share/gtksourceview-2.0/language-specs/`
-	- for gedit 3: `~/.local/share/gtksourceview-3.0/language-specs/`
+	- for gedit 2 RHEL6/CentOS6: `/usr/share/gtksourceview-2.0/language-specs/`
+	- for gedit 3 RHEL7/CentOS7: `/usr/share/gtksourceview-3.0/language-specs/`
 
-MediaWiki syntax highlighting will be added for the current user (so no need root privileges). The folder created by the extraction can be deleted after installation.
+MediaWiki syntax highlighting will be added for all users plus the .wiki extension
 
 ## Uninstallation
 
@@ -35,7 +35,11 @@ The folder `doc` contains a demo file.
 
 ## Development
 
-Git is used for revision control. [Repository can be browsed online or cloned.](https://github.com/jpfleury/gedit-mediawiki)
+Git is used for revision control. [Repository can be browsed online or cloned.](https://github.com/jagzph/gedit-mediawiki)
+
+If you are looking for the original source and creator [Repository of jpfleury](https://github.com/jpfleury/gedit-mediawiki)
+
+All the credits goes to HIM not mine, I just cloned and add some small changes.
 
 ## License
 
