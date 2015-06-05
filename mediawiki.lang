@@ -20,6 +20,9 @@ MA 02110-1301, USA.
 -->
 <language id="mediawiki" _name="MediaWiki" version="2.0" _section="Others">
 	<metadata>
+		<property name="mimetypes">text/x-mediawiki;application/x-mediawiki;text/x-wiki</property>
+                <property name="globs">*.wiki</property>
+                <property name="line-comment-start">#</property>
 		<property name="block-comment-start">&lt;!--</property>
 		<property name="block-comment-end">--&gt;</property>
 	</metadata>
